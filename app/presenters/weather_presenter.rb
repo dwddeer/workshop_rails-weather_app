@@ -5,10 +5,14 @@ class WeatherPresenter
 
     def encourage_text
         if good_to_read_outside?
-            "Good"
+            "Get some snacks and go read a book in a park!"
         else    
-            "Bad"
+            "It's always a good weather to read a book!"
         end
+    end
+
+    def icon
+        data['current']['condition']['icon']
     end
 
     def description
