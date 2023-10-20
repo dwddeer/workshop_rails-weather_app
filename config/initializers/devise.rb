@@ -272,7 +272,10 @@ Devise.setup do |config|
   # config.omniauth :github, 'APP_ID', 'APP_SECRET', scope: 'user,public_repo'
 
   config.omniauth :google_oauth2, A9n.google_client_id, A9n.google_client_secret, {
-    
+    access_type: "offline", 
+    prompt: "consent",
+    select_account: true,
+    scope: 'userinfo.email, calendar'
   }
 
   # ==> Warden configuration
