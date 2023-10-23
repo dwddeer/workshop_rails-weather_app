@@ -5,6 +5,7 @@ class BookLoansController < ApplicationController
   def create
     respond_to do |format|
       if @book_loan.save
+        publish_log(@book_loan)
         format.html { redirect_to book_url(book), notice: flash_notice }
         format.json { render :show, status: :created, location: @book_loan }
       else
@@ -12,6 +13,10 @@ class BookLoansController < ApplicationController
         format.json { render json: @book_loan.errors, status: :unprocessable_entity }
       end
     end
+  end
+
+  def publish_log(book_loan)
+    Publishers::BookLoan.new(message_content:book_loan.attributes).publish
   end
 
   def cancel
