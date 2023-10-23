@@ -12,4 +12,11 @@ class UserMailer < ApplicationMailer
 
         mail(to: book_loan.user.email, subject: 'Siema')
     end
+
+    def due_date_notification_cron_email
+        @book_title = book_loan.book.title
+        @due_date = book_loan.due_date
+
+        mail(to: book_loan.user.email, subject: 'SiemaCRON')
+    end
 end 
