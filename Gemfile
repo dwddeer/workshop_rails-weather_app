@@ -26,6 +26,7 @@ gem 'google-api-client', require: 'google/apis/calendar_v3'
 gem 'psych', '< 5'
 gem 'hotwire-rails'
 gem 'kaminari'
+gem 'sidekiq'
 
 group :development, :test do
   # See https://guides.rubyonrails.org/debugging_rails_applications.html#debugging-with-the-debug-gem
@@ -54,3 +55,5 @@ group :test do
   gem 'selenium-webdriver'
   gem 'webdrivers'
 end
+
+gem "sidekiq-cron", "~> 1.10"
